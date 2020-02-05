@@ -4,13 +4,31 @@
 {{ .Content }}
 {{ $pages := .Pages }}
 {{ range $pages.ByPublishDate.Reverse }}
-  <h2 class="post-list {{ if ne .Params.show_summary false }}summary{{ end }}">
+
+{{ $i := .Resources.GetMatch "header*"}}
+
+<div class="row">
+  <div class="md-9 col">
+    <h4 class="card-title">
+      <a href="{{ .Permalink }}">
+        {{ .Title }}
+      </a>
+    </h4>
+    <h5 class="card-subtitle">
+      {{ if ne .Params.show_summary false }}
+      {{ .Description }}
+      {{ end }}
+    </h5>
+  </div>
+  <div class="md-3 col">
+    {{if $i}}
+    {{ $image := $i.Resize "300x" }}
     <a href="{{ .Permalink }}">
-      {{ .Title }}
+      <img src="{{ $image.Permalink }}" />
     </a>
-  </h2>
-  {{ if ne .Params.show_summary false }}
-    {{ .Summary }}
-  {{ end }}
+    {{ end}}
+  </div>
+</div>
+
 {{ end }}
 {{ end }}

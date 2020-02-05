@@ -1,16 +1,39 @@
 {{ define "main" }}
 
-<h1>{{ .Title }}</h1>
 {{ .Content }}
-{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{ range $pages.ByPublishDate.Reverse }}
-  <h2 class="post-list {{ if ne .Params.show_summary false }}summary{{ end }}">
-    <a href="{{ .Permalink }}">
-      {{ .Title }}
-    </a>
-  </h2>
-  {{ if ne .Params.show_summary false }}
-    {{ .Summary }}
-  {{ end }}
-{{ end }}
-{{ end }}
+<h1>Hackspace Manchester</h1>
+<h2>A space for people who make things to make things</h2>
+<div class="row flex-spaces">
+  <div class="alert alert-success"><b>Open Evenings!</b> Every Wednesday 18:30 - 21:30, just come by, no need to book.
+  </div>
+</div>
+
+<div class="row">
+  <div class='sm-12 md-4 col'><img src="images/sign.jpg" /></div>
+  <div class='sm-12 md-4 col'><img src="images/laser.jpg" /></div>
+  <div class='sm-12 md-4 col'><img src="images/metal.jpg" /></div>
+</div>
+<div class="row">
+  <div class='sm-12 md-6 col'>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Join the space</h4>
+        <p class="card-text">24/7 fob access, loads of tools, community, and ability to join meetings.</p>
+        <a class="paper-btn" href="https://members.hacman.org.uk">Join</a>
+      </div>
+    </div>
+  </div>
+
+  <div class='sm-6 md-6 col'>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Spaces</h4>
+        <p class="card-text">24/7 fob access, loads of tools, community, and ability to join meetings.</p>
+        <a class="paper-btn" href="/areas">Areas</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{{ end}}

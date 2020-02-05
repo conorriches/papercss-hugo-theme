@@ -1,6 +1,24 @@
 {{ define "main" }}
+{{ $i := .Resources.GetMatch "header*"}}
+<div class="row">
+    <div class="{{if $i}}md-6{{ else }} md-8{{ end }}">
+        <h1>{{ .Title }}</h1>
+        {{ .Description }}
+    </div>
+    <div class="md-2">
+    </div>
+    {{if $i}}
+    <div class="md-4">
+        {{ $image := $i.Fit  "800x200" }}
+        <img src="{{ $image.Permalink }}" />
+    </div>
+    {{ end}}
+</div>
 
-<h1>{{ .Title }}</h1>
+
+
+
+
 {{ .Content }}
-  
+
 {{ end }}
