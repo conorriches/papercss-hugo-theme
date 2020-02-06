@@ -10,7 +10,7 @@
 <div class="row">
   <div class="md-9 col">
     <h4 class="card-title">
-      <a href="{{ .Permalink }}">
+      <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
     </h4>
@@ -23,7 +23,7 @@
   <div class="md-3 col">
     {{if $i}}
     {{ $image := $i.Resize "300x" }}
-    <a href="{{ .Permalink }}">
+    <a href="{{ .RelPermalink }}">
       <img src="{{ $image.Permalink }}" />
     </a>
     {{ end}}
