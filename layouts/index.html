@@ -9,9 +9,19 @@
 </div>
 
 <div class="row">
-  <div class='sm-12 md-4 col'><img src="images/sign.jpg" /></div>
-  <div class='sm-12 md-4 col'><img src="images/laser.jpg" /></div>
-  <div class='sm-12 md-4 col'><img src="images/metal.jpg" /></div>
+
+  <div class='sm-12 md-4 col'>
+    {{ $i := .Resources.GetMatch "sign*" }}
+    {{ $resized_image := $i.Resize "300x" }} <img src="{{ $resized_image.Permalink }}" />
+  </div>
+  <div class='sm-12 md-4 col'>
+    {{ $i := .Resources.GetMatch "laser*" }}
+    {{ $resized_image := $i.Resize "300x" }} <img src="{{ $resized_image.Permalink }}" />
+  </div>
+  <div class='sm-12 md-4 col'>
+    {{ $i := .Resources.GetMatch "metal*" }}
+    {{ $resized_image := $i.Resize "300x" }} <img src="{{ $resized_image.Permalink }}" />
+  </div>
 </div>
 <div class="row">
   <div class='sm-12 md-6 col'>
