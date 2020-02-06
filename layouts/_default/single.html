@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $i := .Resources.GetMatch "header*"}}
+
 <div class="row">
     <div class="{{if $i}}md-6{{ else }} md-8{{ end }}">
         <h1>{{ .Title }}</h1>
@@ -16,9 +17,13 @@
 </div>
 
 
-
-
-
+{{if eq .Params.danger_level "3"}}
+<div class="row flex-spaces">
+    <div class="alert alert-danger">
+        This tool is bloody dangerous! Training is required and PPE must be worn.
+    </div>
+</div>
+{{end}}
 {{ .Content }}
 
 {{ end }}
