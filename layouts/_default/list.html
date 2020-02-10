@@ -1,6 +1,9 @@
 {{ define "main" }}
 
+{{ if .Title}}
 <h1>{{ .Title }}</h1>
+{{ end }}
+
 {{ .Content }}
 {{ $pages := .Pages }}
 {{ range $pages.ByPublishDate.Reverse }}
@@ -8,7 +11,7 @@
 {{ $i := .Resources.GetMatch "header*"}}
 
 <div class="row">
-  <div class="md-9 col">
+  <div class="sm-9 col">
     <h4 class="card-title">
       <a href="{{ .RelPermalink }}">
         {{ .Title }}
@@ -20,7 +23,7 @@
       {{ end }}
     </h5>
   </div>
-  <div class="md-3 col">
+  <div class="sm-3 col">
     {{if $i}}
     {{ $image := $i.Resize "300x" }}
     <a href="{{ .RelPermalink }}">

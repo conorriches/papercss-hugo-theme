@@ -1,10 +1,17 @@
 {{ define "main" }}
-{{ $i := .Resources.GetMatch "header*"}}
 
+{{ $i := .Resources.GetMatch "header**"}}
 <div class="row">
     <div class="{{if $i}}md-6{{ else }} md-8{{ end }}">
         <h1>{{ .Title }}</h1>
         {{ .Description }}
+        {{with .Params.wiki_link}}
+        <a href="{{.}}" target="_blank"><span class="badge success">View on Wiki</span></a>
+        {{end}}
+
+        {{with .Params.telegram}}
+        <a href="{{.}}" target="_blank"><span class="badge success">Join Chat</span></a>
+        {{end}}
     </div>
     <div class="md-2">
     </div>
@@ -16,7 +23,7 @@
     {{ end}}
 </div>
 
-
+<hr />
 {{if eq .Params.danger_level "3"}}
 <div class="row flex-spaces">
     <div class="alert alert-danger">
