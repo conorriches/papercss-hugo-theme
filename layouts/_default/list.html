@@ -6,6 +6,10 @@
 
 {{ .Content }}
 {{ $pages := .Pages }}
+{{ if $pages }}
+<hr />
+<h3>Pages under this category</h3>
+{{ end }}
 {{ range $pages.ByPublishDate.Reverse }}
 
 {{ $i := .Resources.GetMatch "header*"}}
@@ -32,6 +36,5 @@
     {{ end}}
   </div>
 </div>
-
 {{ end }}
 {{ end }}
