@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 {{ $i := .Resources.GetMatch "header**"}}
-<div class="row">
+<div class="row highlight">
     <div class="col sm-8">
         <h1>{{ .Title }}</h1>
         {{ .Description }}
@@ -21,7 +21,6 @@
     {{ end}}
 </div>
 
-<hr />
 {{if eq .Params.danger_level "3"}}
 <div class="row flex-spaces">
     <div class="alert alert-danger">

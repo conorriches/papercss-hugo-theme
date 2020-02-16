@@ -48,6 +48,15 @@ p{
 img {
   margin: 0 auto;
 }
+
+@media only screen and (max-width:480px) {
+
+  .paper{
+    width: 100%;
+    background:rgba(255,255,255,0.95);
+  }
+}
+
 @media only screen and (max-width:768px) {
   body {
     font-size: 16px;
@@ -60,6 +69,10 @@ img {
   .nav-brand > h3 {
      font-size: 2em;
      border: 0;
+  }
+
+  .hide-small{
+    display:none !important;
   }
 
 }
@@ -100,6 +113,14 @@ nav img {
 /* blockquote */
 blockquote {
   font-style: italic;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-centre{
+  align-self: center;
 }
 
 .paper {
@@ -152,4 +173,12 @@ blockquote {
 .badge{
   line-height: 1.5em;
   margin: 0.2em 0;
+}
+
+.highlight {
+  background-color: rgb(233, 236, 207);
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
 }

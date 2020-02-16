@@ -5,36 +5,38 @@
 {{ end }}
 
 {{ .Content }}
+
 {{ $pages := .Pages }}
 {{ if $pages }}
-<hr />
-<h3>Pages under this category</h3>
+<h2>Pages under this category</h2>
 {{ end }}
-{{ range $pages.ByPublishDate.Reverse }}
-
-{{ $i := .Resources.GetMatch "header*"}}
 
 <div class="row">
-  <div class="sm-9 col">
-    <h4 class="card-title">
+  {{ range $pages.ByPublishDate.Reverse }}
+
+  {{ $i := .Resources.GetMatch "header*"}}
+
+  {{ if $i }}
+  <div class="xs-12 sm-3 col flex hide-small">
+    {{ $image := $i.Resize "300x" }}
+    <a href="{{ .RelPermalink }}" class="align-centre">
+      <img src="{{ $image.Permalink }}" />
+    </a>
+  </div>
+  {{ end }}
+  <div class="xs-12 sm-9 col">
+    <h4>
       <a href="{{ .RelPermalink }}">
         {{ .Title }}
       </a>
     </h4>
-    <h5 class="card-subtitle">
-      {{ if ne .Params.show_summary false }}
+    {{ if ne .Params.show_summary false }}
+    <p>
       {{ .Description }}
-      {{ end }}
-    </h5>
+    </p>
+    {{ end }}
   </div>
-  <div class="sm-3 col">
-    {{if $i}}
-    {{ $image := $i.Resize "300x" }}
-    <a href="{{ .RelPermalink }}">
-      <img src="{{ $image.Permalink }}" />
-    </a>
-    {{ end}}
-  </div>
+
+  {{ end }}
 </div>
-{{ end }}
 {{ end }}
