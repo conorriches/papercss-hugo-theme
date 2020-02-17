@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap");
-/* base */
+
+
+/* BASE OVERRIDES */
 body {
   background-image: url('{{ "img/space.jpg" | absURL }}');
   background-size: cover; 
@@ -49,14 +51,51 @@ img {
   margin: 0 auto;
 }
 
-@media only screen and (max-width:480px) {
 
+blockquote {
+  font-style: italic;
+}
+
+a,
+a:visited {
+  color: rgb(0, 0, 238);
+  background-image: none;
+  text-decoration: underline;
+}
+
+/* NAVBAR */
+nav {
+  margin-top: 1em;
+  padding: 0.6rem;
+}
+
+nav a,
+nav a:visited {
+  color: #41403e;
+  text-decoration: none;
+  line-height: 1.8em;
+}
+
+nav li {
+  position: relative;
+}
+
+nav img {
+  border: none;
+  height: 3em;
+  margin-left: 0;
+}
+
+
+/* EXTRA SMALL - xs */
+@media only screen and (max-width:480px) {
   .paper{
     width: 100%;
     background:rgba(255,255,255,0.95);
   }
 }
 
+/* SMALL - sm */
 @media only screen and (max-width:768px) {
   body {
     font-size: 16px;
@@ -77,44 +116,45 @@ img {
 
 }
 
-/* anchors */
-a,
-a:visited {
-  color: rgb(0, 0, 238);
-  background-image: none;
-  text-decoration: underline;
+/* MEDIUM - md */
+@media only screen and (max-width:992px) {
+  nav a, nav ul.inline li a{
+    font-size:1rem;
+    line-height: 1.2em;
+  }
 }
 
-/* navbar */
-nav {
-  margin-top: 1em;
-  padding: 0.6rem;
+/* > SM */
+@media only screen and (min-width:769px) {
+  .show-small{
+    display:none !important;
+  }
 }
 
-nav a,
-nav a:visited {
-  color: #41403e;
-  text-decoration: none;
-  line-height: 1.8em;
+
+/* FOOTER */
+footer{
+  margin: 0;
+  padding: 0;
+  background: white;
 }
 
-nav li {
-  position: relative;
+footer .row{
+  align-items: flex-end;
 }
 
-nav img {
+footer img{
+  height: 3em;
   border: none;
-  height:10px;
-  position: absolute;
-  right: -10px;
-  bottom: 2px;
 }
 
-/* blockquote */
-blockquote {
-  font-style: italic;
+footer h3 {
+  margin:0;
+  padding:0;
 }
 
+
+/* HELPERS */
 .flex {
   display: flex;
 }
@@ -122,6 +162,8 @@ blockquote {
 .align-centre{
   align-self: center;
 }
+
+
 
 .paper {
   margin-top: 1rem;
